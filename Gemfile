@@ -8,6 +8,7 @@ gem 'dm-sqlite-adapter', '1.2.0'
 group :test do
   gem "rspec"
   gem "rack-test"
+  gem 'rspec-json_expectations'
 end
 
 gem 'autotest'

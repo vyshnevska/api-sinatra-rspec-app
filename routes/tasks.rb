@@ -17,9 +17,9 @@ end
 post '/api/tasks' do
   body = JSON.parse request.body.read
   t = Task.create(
-    title:    body['title'],
-    director: body['director'],
-    year:     body['year']
+    title:        body['title'],
+    completed:    body['completed'],
+    description:  body['description']
   )
 
   status 201
@@ -33,9 +33,9 @@ put '/api/tasks/:id' do
     halt(404)
   end
   halt 500 unless Task.update(
-    title:      body['title'],
-    director:   body['director'],
-    year:       body['year'] 
+    title:        body['title'],
+    completed:    body['completed'],
+    description:  body['description']
     )
   t.to_json
 end

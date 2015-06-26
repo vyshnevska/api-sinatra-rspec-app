@@ -7,6 +7,8 @@
 
 require 'rspec'
 require 'rack/test'
+require "rspec/json_expectations"
+
 require 'sinatra'
 require './main'
 
