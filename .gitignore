@@ -1,3 +1,5 @@
 Gemfile.lock 
 development.db
 .DS_Store
+sqlite3.dll
+api-test.db

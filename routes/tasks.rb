@@ -1,3 +1,7 @@
+get '/' do
+  'rspec-api-rest-example'
+end
+
 get '/api/tasks' do
   Task.all.to_json
 end
