@@ -8,7 +8,7 @@ configure :development do
   DataMapper.setup(:default, ENV['DATABASE_URL'] || "sqlite3://#{Dir.pwd}/development.db")
 end 
 
-require './models/task' 
+require './models/init'
 require './routes/init'
 
 DataMapper.finalize

@@ -14,7 +14,7 @@ require './main'
 
 require 'dm-core'
 require 'dm-migrations'
-require './models/task'
+require './models/init'
 
 def app
   Sinatra::Application
@@ -26,7 +26,4 @@ RSpec.configure do |config|
   DataMapper::setup(:default, "sqlite3://#{Dir.pwd}/api-test.db")
   DataMapper.finalize
   Task.auto_migrate!
-#  config.treat_symbols_as_metadata_keys_with_true_values = true
-#  config.run_all_when_everything_filtered = true
-#  config.filter_run :focus
 end

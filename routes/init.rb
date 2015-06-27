@@ -1,1 +1,1 @@
-require_relative './tasks'
+require_relative 'tasks'

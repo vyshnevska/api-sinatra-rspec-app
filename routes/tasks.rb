@@ -1,5 +1,5 @@
 get '/' do
-  'rspec-api-rest-example'
+  'Welcome to api sinatra app!'
 end
 
 get '/api/tasks' do
@@ -7,29 +7,27 @@ get '/api/tasks' do
 end
 
 get '/api/tasks/:id' do
-  t = Task.get(params[:id])
-  if t.nil?
-    halt 404
-  end
-  t.to_json
+  task = Task.get(params[:id])
+ 
+  task.to_json if task
 end
 
 post '/api/tasks' do
   body = JSON.parse request.body.read
-  t = Task.create(
+  task = Task.create(
     title:        body['title'],
     completed:    body['completed'],
     description:  body['description']
   )
 
   status 201
-  t.to_json 
+  task.to_json 
 end
 
 put '/api/tasks/:id' do
   body = JSON.parse request.body.read
-  t = Task.get(params[:id])
-  if t.nil?
+  task = Task.get(params[:id])
+  if task.nil?
     halt(404)
   end
   halt 500 unless Task.update(
@@ -37,13 +35,13 @@ put '/api/tasks/:id' do
     completed:    body['completed'],
     description:  body['description']
     )
-  t.to_json
+  task.to_json
 end
 
 delete '/api/tasks/:id' do
-  t = Task.get(params[:id])
-  if t.nil?
+  task = Task.get(params[:id])
+  if task.nil?
       halt 404
   end
-  halt 500 unless t.destroy
+  halt 500 unless task.destroy
 end
